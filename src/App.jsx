@@ -7,11 +7,12 @@ import { Home } from "./pages/Home";
 import { Navbar } from "./components/Navbar";
 import { ExerciseDetail } from "./pages/ExerciseDetail";
 import { Footer } from "./components/Footer";
-
+import { ScrollToTop } from "./components/ScrollToTop";
 export const App = () => {
   return (
     <Box width="400px" sx={{ width: { xl: "1488px" } }} m="auto">
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<ExerciseDetail />} />
