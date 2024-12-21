@@ -28,21 +28,14 @@ export const SearchExercise = ({
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    console.log("oii");
     if (search) {
       const exercisesData = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
+        `https://exercisedb.p.rapidapi.com/exercises/name/${search}`,
         exerciseOptions
       );
-      const searchedExercises = exercisesData.filter((exercise) => {
-        return (
-          exercise.name.toLowerCase().includes(search) ||
-          exercise.target.toLowerCase().includes(search) ||
-          exercise.equipment.toLowerCase().includes(search) ||
-          exercise.bodyPart.toLowerCase().includes(search)
-        );
-      });
       setSearch("");
-      setExercises(searchedExercises);
+      setExercises(exercisesData);
       topPage.current.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -84,6 +77,7 @@ export const SearchExercise = ({
         />
         <Button
           className="search-btn"
+          type="submit"
           sx={{
             bgcolor: "#FF2625",
             color: "#fff",

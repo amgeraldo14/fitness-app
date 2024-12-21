@@ -16,7 +16,7 @@ export const Home = () => {
       let exercisesData = [];
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
+          "https://exercisedb.p.rapidapi.com/exercises?limit=0",
           exerciseOptions
         );
       } else {
